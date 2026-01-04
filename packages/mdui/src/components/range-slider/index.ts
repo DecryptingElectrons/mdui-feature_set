@@ -9,6 +9,7 @@ import { $ } from '@mdui/jq/$.js';
 import '@mdui/jq/methods/css.js';
 import { FormController, formResets } from '@mdui/shared/controllers/form.js';
 import { defaultValue } from '@mdui/shared/decorators/default-value.js';
+import { booleanConverter } from '@mdui/shared/helpers/decorator.js';
 import { SliderBase } from '../slider/slider-base.js';
 import type { Ripple } from '../ripple/index.js';
 import type { FormControl } from '@mdui/jq/shared/form.js';
@@ -37,8 +38,7 @@ import type { Ref } from 'lit/directives/ref.js';
 @customElement('mdui-range-slider')
 export class RangeSlider
   extends SliderBase<RangeSliderEventMap>
-  implements FormControl
-{
+  implements FormControl {
   public static override styles: CSSResultGroup = [SliderBase.styles];
 
   /**
@@ -46,6 +46,16 @@ export class RangeSlider
    */
   @defaultValue()
   public defaultValue: number[] = [];
+
+  /**
+   * Whether to allow the two sliders to overlap and exchange positions. Defaults to false (no overlap allowed).
+   */
+  @property({
+    type: Boolean,
+    reflect: true,
+    converter: booleanConverter,
+  })
+  public allowOverlap = false;
 
   /**
    * 当前操作的是哪一个 handle
@@ -141,6 +151,10 @@ export class RangeSlider
     const onTouchEnd = () => {
       if (!this.disabled) {
         this.labelVisible = false;
+        // Settle handles if allow_overlap is enabled
+        if (this.allowOverlap) {
+          this.settleHandles();
+        }
       }
     };
 
@@ -194,8 +208,8 @@ export class RangeSlider
         part="handle"
         class="handle start"
         style=${styleMap({
-          'z-index': this.currentHandle === 'start' ? '2' : '1',
-        })}
+      'z-index': this.currentHandle === 'start' ? '2' : '1',
+    })}
       >
         <div class="elevation"></div>
         <mdui-ripple
@@ -209,8 +223,8 @@ export class RangeSlider
         part="handle"
         class="handle end"
         style=${styleMap({
-          'z-index': this.currentHandle === 'end' ? '2' : '1',
-        })}
+      'z-index': this.currentHandle === 'end' ? '2' : '1',
+    })}
       >
         <div class="elevation"></div>
         <mdui-ripple
@@ -220,24 +234,24 @@ export class RangeSlider
         ${this.renderLabel(this.value[1])}
       </div>
       ${when(this.tickmarks, () =>
-        map(
-          this.getCandidateValues(),
-          (value) =>
-            html`<div
+      map(
+        this.getCandidateValues(),
+        (value) =>
+          html`<div
               part="tickmark"
               class="tickmark ${classMap({
-                active: value > this.value[0] && value < this.value[1],
-              })}"
+            active: value > this.value[0] && value < this.value[1],
+          })}"
               style="${styleMap({
-                left: `${((value - this.min) / this.max) * 100}%`,
-                display:
-                  value === this.value[0] || value === this.value[1]
-                    ? 'none'
-                    : 'block',
-              })}"
+            left: `${((value - this.min) / this.max) * 100}%`,
+            display:
+              value === this.value[0] || value === this.value[1]
+                ? 'none'
+                : 'block',
+          })}"
             ></div>`,
-        ),
-      )}
+      ),
+    )}
     </label>`;
   }
 
@@ -255,8 +269,12 @@ export class RangeSlider
     const startPercent = getPercent(this.value[0]);
     const endPercent = getPercent(this.value[1]);
 
-    this.trackActiveRef.value!.style.width = `${endPercent - startPercent}%`;
-    this.trackActiveRef.value!.style.left = `${startPercent}%`;
+    // Use min and max to handle overlapping cases
+    const minPercent = Math.min(startPercent, endPercent);
+    const maxPercent = Math.max(startPercent, endPercent);
+
+    this.trackActiveRef.value!.style.width = `${maxPercent - minPercent}%`;
+    this.trackActiveRef.value!.style.left = `${minPercent}%`;
     this.handleStartRef.value!.style.left = `${startPercent}%`;
     this.handleEndRef.value!.style.left = `${endPercent}%`;
   }
@@ -272,21 +290,45 @@ export class RangeSlider
     };
 
     if (isStart) {
-      if (value <= endValue) {
+      if (this.allowOverlap) {
+        // Allow dragging past the end value
         this.value = [value, endValue];
         doInput();
-      } else if (startValue !== endValue) {
-        this.value = [endValue, endValue];
-        doInput();
+      } else {
+        // Original behavior: prevent dragging past the end value
+        if (value <= endValue) {
+          this.value = [value, endValue];
+          doInput();
+        } else if (startValue !== endValue) {
+          this.value = [endValue, endValue];
+          doInput();
+        }
       }
     } else {
-      if (value >= startValue) {
+      if (this.allowOverlap) {
+        // Allow dragging past the start value
         this.value = [startValue, value];
         doInput();
-      } else if (startValue !== endValue) {
-        this.value = [startValue, startValue];
-        doInput();
+      } else {
+        // Original behavior: prevent dragging past the start value
+        if (value >= startValue) {
+          this.value = [startValue, value];
+          doInput();
+        } else if (startValue !== endValue) {
+          this.value = [startValue, startValue];
+          doInput();
+        }
       }
+    }
+  }
+
+  /**
+   * Settle handles so that start <= end after dragging
+   */
+  private settleHandles() {
+    const [start, end] = this.value;
+    if (start > end) {
+      this.value = [end, start];
     }
   }
 }
