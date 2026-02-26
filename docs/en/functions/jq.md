@@ -1,6 +1,6 @@
 # JavaScript Library
 
-mdui includes a lightweight JavaScript utility library that provides a jQuery-like API with chainable calls, but at only a fraction of jQuery's size.
+mdui includes a lightweight JavaScript utility library that provides a jQuery-like API with chainable calls at only a fraction of jQuery's size.
 
 Import the function:
 

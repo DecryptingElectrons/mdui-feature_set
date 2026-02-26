@@ -1,6 +1,6 @@
 # Navigation Rail Component
 
-The navigation rail provides a means to access different primary pages on tablets and desktop computers.
+The navigation rail gives you access to different primary pages on tablets and desktop computers.
 
 ## Usage {#usage}
 
@@ -18,7 +18,7 @@ import type { NavigationRail } from 'mdui/components/navigation-rail.js';
 import type { NavigationRailItem } from 'mdui/components/navigation-rail-item.js';
 ```
 
-Example: (Note: The `style="position: relative"` in the example is for demonstration purposes, Remove it in actual use.)
+Example: (Note: The `style="position: relative"` in the example is for demonstration purposes. Remove it in actual use.)
 
 ```html,example,playgroundId=320
 <mdui-navigation-rail value="recent" style="position: relative">
@@ -30,14 +30,14 @@ Example: (Note: The `style="position: relative"` in the example is for demonstra
 
 **Notes:**
 
-By default, this component uses the `position: fixed` style and automatically adds `padding-left` or `padding-right` to the `body` to prevent content obscuration.
+By default, this component uses the `position: fixed` style and automatically adds `padding-left` or `padding-right` to the `body` to prevent content from being obscured.
 
 However, it defaults to `position: absolute` style in the following cases:
 
 1. When the `contained` property of the `<mdui-navigation-rail>` component is `true`. In this case, it adds `padding-left` or `padding-right` style to the parent element.
 2. When it's within the [`<mdui-layout></mdui-layout>`](/en/docs/2/components/layout) component. In this case, it doesn't add `padding-left` or `padding-right` style.
 
-## Styles {#examples}
+## Examples {#examples}
 
 ### In Container {#example-contained}
 

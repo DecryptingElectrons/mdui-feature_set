@@ -46,7 +46,7 @@ import type { LayoutMain } from 'mdui/components/layout-main.js';
 
 **Introduction:**
 
-The layout system is built from the outside in. Each layout component (`<mdui-layout-item>`) occupies space in one of the four directions (top, bottom, left, right). Subsequent layout components continue to occupy the remaining space.
+The layout system is designed to be built from the outside in. Each layout component (`<mdui-layout-item>`) occupies space on one of the four sides (top, bottom, left, right). Subsequent layout components fill the remaining space.
 
 The following components inherit from `<mdui-layout-item>` and can also be used as layout components:
 
@@ -98,7 +98,7 @@ By default, layout components occupy space in the order they appear in the code.
 </mdui-layout>
 ```
 
-When [`<mdui-top-app-bar>`](/en/docs/2/components/top-app-bar) is placed before [`<mdui-navigation-drawer>`](/en/docs/2/components/navigation-drawer), it occupies the full screen width first, leaving only the remaining height for `<mdui-navigation-drawer>`. If their positions are swapped, [`<mdui-navigation-drawer>`](/en/docs/2/components/navigation-drawer) occupies the full screen height first, leaving only the remaining width for [`<mdui-top-app-bar>`](/en/docs/2/components/top-app-bar).
+When [`<mdui-top-app-bar>`](/en/docs/2/components/top-app-bar) is placed before [`<mdui-navigation-drawer>`](/en/docs/2/components/navigation-drawer), it takes the full screen width first, leaving only the remaining height for `<mdui-navigation-drawer>`. If their positions are swapped, [`<mdui-navigation-drawer>`](/en/docs/2/components/navigation-drawer) takes the full screen height first, leaving only the remaining width for [`<mdui-top-app-bar>`](/en/docs/2/components/top-app-bar).
 
 ### Layout Component Placement {#example-placement}
 

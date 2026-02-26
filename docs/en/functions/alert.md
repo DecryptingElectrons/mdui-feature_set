@@ -1,6 +1,6 @@
 # alert Function
 
-The `alert` function, a wrapper for the [`<mdui-dialog>`](/en/docs/2/components/dialog) component, supersedes the native `window.alert` function, enabling the creation of alert dialogs without HTML code.
+The `alert` function, a wrapper for the [`<mdui-dialog>`](/en/docs/2/components/dialog) component, replaces the native `window.alert` function and lets you create alert dialogs without writing HTML.
 
 ## Usage {#usage}
 

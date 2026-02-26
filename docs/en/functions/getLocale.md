@@ -1,6 +1,6 @@
 # getLocale Function
 
-The `getLocale` function is used to get the current locale code. For more details, refer to [Localization](/en/docs/2/getting-started/localization).
+The `getLocale` function returns the current locale code. For more details, refer to [Localization](/en/docs/2/getting-started/localization).
 
 ## Usage {#usage}
 

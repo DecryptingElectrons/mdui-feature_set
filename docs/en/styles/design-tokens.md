@@ -1,8 +1,8 @@
 # Design Tokens
 
-Design Tokens are a strategy employed in managing design systems.
+Design Tokens are a common way to manage design systems.
 
-They abstract reusable elements such as colors, fonts, and spacing into independent variables. These variables are then consistently used across the design system.
+They turn reusable values such as colors, fonts, and spacing into variables that can be used consistently across a design system.
 
 <style>
 .design-tokens-color {
@@ -143,7 +143,7 @@ They abstract reusable elements such as colors, fonts, and spacing into independ
 }
 </style>
 
-mdui employs global CSS custom properties to implement Design Tokens, ensuring style consistency across all components. By modifying these properties, you can globally adjust the styles of all mdui components. For your own styles, prioritize using these CSS custom properties to maintain consistency with mdui component styles. This also ensures your styles update synchronously when modifying dynamic color schemes.
+mdui uses global CSS custom properties to implement Design Tokens, keeping styles consistent across all components. By modifying these properties, you can globally adjust the styles of all mdui components. For your own styles, prioritize using these CSS custom properties to maintain consistency with mdui component styles. This also ensures your styles update synchronously when modifying dynamic color schemes.
 
 ## Color {#color}
 
@@ -153,7 +153,7 @@ Additionally, mdui provides CSS custom properties named `--mdui-color-{name}`. T
 
 To modify specific colors, adjust both `--mdui-color-{name}-light` and `--mdui-color-{name}-dark`. When reading CSS custom properties, use the `--mdui-color-{name}` property.
 
-The values of CSS custom properties are three RGB colors separated by `,`. Here's an example of how to use color CSS custom properties:
+These CSS custom properties store three comma-separated RGB channel values. Here's an example of how to use color CSS custom properties:
 
 ```css
 /* Modify the color value of primary */
@@ -173,7 +173,7 @@ The values of CSS custom properties are three RGB colors separated by `,`. Here'
 }
 ```
 
-For creating a completely new color scheme, consider using the [`setColorScheme`](/en/docs/2/functions/setColorScheme) function. This function generates a complete color scheme based on the provided color.
+To generate a new color scheme, use the [`setColorScheme`](/en/docs/2/functions/setColorScheme) function. This function generates a complete color scheme based on the provided color.
 
 <table>
   <thead>
@@ -1099,7 +1099,7 @@ Here's an example of how to use these properties:
 
 ## State Layer Opacity {#state-layer}
 
-mdui components, such as [`<mdui-button>`](/en/docs/2/components/button), utilize a semi-transparent overlay layer during interaction states like hover, focus, press, and drag. The opacity of this layer can be adjusted by modifying the following CSS custom properties:
+mdui components, such as [`<mdui-button>`](/en/docs/2/components/button), use a semi-transparent overlay layer during interaction states like hover, focus, press, and drag. The opacity of this layer can be adjusted by modifying the following CSS custom properties:
 
 ```css
 /* Modify the opacity of the state layer */

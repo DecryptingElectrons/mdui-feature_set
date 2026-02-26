@@ -1,8 +1,8 @@
 # Dynamic Theme
 
-mdui supports dynamic theming. By providing a color value, mdui generates a comprehensive color scheme. It can also extract the dominant color from a wallpaper and create a color scheme based on it.
+mdui supports dynamic theming. Given a color value, mdui generates a complete color scheme. It can also extract the dominant color from a wallpaper and create a color scheme based on it.
 
-Click the palette icon <mdui-icon name="palette--outlined" style="vertical-align: middle"></mdui-icon> in the top right corner of the documentation page to toggle between color schemes and observe the appearance of various components under different color schemes.
+Click the palette icon <mdui-icon name="palette--outlined" style="vertical-align: middle"></mdui-icon> in the top-right corner of the documentation page to toggle between color schemes and observe the appearance of various components under different color schemes.
 
 A color scheme in mdui is a set of CSS custom properties. mdui components reference these properties for their color values, enabling you to update the entire color scheme simultaneously. Refer to [Design Tokens - Color](/en/docs/2/styles/design-tokens#color) for a complete list of CSS custom properties.
 
