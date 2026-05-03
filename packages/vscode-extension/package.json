@@ -32,10 +32,10 @@
   ],
   "contributes": {
     "html": {
-      "customData": ["./mdui.html-data.zh-cn.json"]
+      "customData": ["%html.customData%"]
     },
     "css": {
-      "customData": ["./mdui.css-data.zh-cn.json"]
+      "customData": ["%css.customData%"]
     }
   },
   "scripts": {

@@ -35,17 +35,17 @@ Search for `mdui` in the VS Code extension marketplace, select the first result 
 
 Prioritize npm installation and `settings.json` setup over the VS Code extension to ensure IDE support aligns with the mdui version in use.
 
-WebStorm {#webstorm}
-
 ## WebStorm {#webstorm}
 
 ### For npm-installed mdui {#webstorm-npm}
 
 To enable WebStorm IDE support for mdui installed via npm:
 
-1. Add the following code to the root of your project's `package.json` file:
-   ```
-   web-types: ["./node_modules/mdui/web-types.en.json"]
+1. Add the following property to the root of your project's `package.json` file:
+   ```json
+   {
+     "web-types": ["./node_modules/mdui/web-types.en.json"]
+   }
    ```
 
 If `package.json` already has a `web-types` property, add `./node_modules/mdui/web-types.en.json` to the `web-types` array. Restart WebStorm after these changes.
@@ -69,7 +69,7 @@ mdui support varies between VS Code and WebStorm. The table below details the di
 | Enumeration values within HTML tag attributes           | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon> | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon> (Does not support displaying enumeration value comments) |
 | Event names within HTML tags                            |                                                                        | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon>                                                          |
 | `name` attribute values within HTML slots               |                                                                        |                                                                                                                                 |
-| `part` attribute names within CSS `::part()` selectors  |                                                                        | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon> (Requires WebStorm 2023.2 or later)                      |
+| `part` attribute names within CSS `::part()` selectors  |                                                                        | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon>                                                          |
 | CSS custom property names within component-specific CSS |                                                                        | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon>                                                          |
 | Global CSS custom property names                        | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon> | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon>                                                          |
 | Global CSS class names                                  |                                                                        | <mdui-icon name="check--rounded" class="ide-support-icon"></mdui-icon>                                                          |

@@ -79,7 +79,7 @@ The tooltip on the range slider can be hidden by adding the `nolabel` attribute.
 
 ### Modify Tooltip {#example-labelFormatter}
 
-The `labelFormatter` property allows you to customize the display format of the tooltip. This property is a function that takes the current value of the range slider as a parameter and returns the text you want to display.
+The `labelFormatter` property lets you customize the display format of the tooltip. It takes the current value of the range slider and returns the text to display.
 
 ```html,example,expandable,playgroundId=343
 <mdui-range-slider class="example-label-formatter"></mdui-range-slider>

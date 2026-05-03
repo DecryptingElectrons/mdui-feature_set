@@ -1,6 +1,6 @@
 # Navigation Bar Component
 
-The navigation bar facilitates easy switching between main pages on mobile devices.
+The navigation bar makes it easy to switch between main pages on mobile devices.
 
 ## Usage {#usage}
 
@@ -111,7 +111,7 @@ If you want to place the navigation bar within a specific container, use the `sc
 
 The `scroll-behavior` attribute on `<mdui-navigation-bar>` controls the visibility of the navigation bar during scrolling. Set its value to `hide` to hide the navigation bar when scrolling down and show it when scrolling up.
 
-The `scroll-threshold` attribute sets the number of pixels to start hiding the navigation bar.
+Use the `scroll-threshold` attribute to set how many pixels must be scrolled before the navigation bar starts hiding.
 
 ```html,example,expandable,playgroundId=312
 <div style="position: relative;overflow: hidden">

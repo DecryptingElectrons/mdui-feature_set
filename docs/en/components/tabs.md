@@ -64,7 +64,7 @@ The `variant` attribute on the `<mdui-tabs>` component allows you to set the sty
 
 ### Tab Placement {#example-placement}
 
-The `placement` attribute on the `<mdui-tabs>` component allows you to set the position of the tabs.
+Use the `placement` attribute on the `<mdui-tabs>` component to set the tab position.
 
 ```html,example,expandable,playgroundId=391
 <mdui-select class="example-change-placement" placeholder="Select placement value" style="width: 180px">

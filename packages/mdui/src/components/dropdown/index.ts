@@ -481,11 +481,18 @@ export class Dropdown extends MduiElement<DropdownEventMap> {
   }
 
   private onPanelClick(e: MouseEvent) {
+    const $target = $(e.target!);
     if (
       !this.disabled &&
       !this.stayOpenOnClick &&
-      $(e.target!).is('mdui-menu-item')
+      $target.is('mdui-menu-item')
     ) {
+      // 如果点击的是有子菜单的菜单项，不关闭 dropdown。hasSubmenu 是 menu-item 的私有方法
+      const menuItem = e.target as unknown as { hasSubmenu: boolean };
+      if (menuItem.hasSubmenu) {
+        return;
+      }
+
       this.open = false;
     }
   }

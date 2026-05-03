@@ -1,12 +1,12 @@
 # Localization
 
-mdui uses English by default. If you wish to use other languages, you'll need to do some localization configuration.
+mdui defaults to English. To support other languages, configure localization.
 
 ## Usage {#usage}
 
 mdui provides three functions for localization:
 
-- [`loadLocale`](/en/docs/2/functions/loadLocale): Loads locale modules. Accepts a function that takes a locale code and returns a Promise resolving to the locale module. Ensure to call this function in your project's entry file.
+- [`loadLocale`](/en/docs/2/functions/loadLocale): Loads locale modules. Accepts a function that takes a locale code and returns a Promise resolving to the locale module. Call this function in your project's entry file.
 - [`setLocale`](/en/docs/2/functions/setLocale): Begins switching the active locale to the given locale code, and returns a promise that resolves when the new locale has loaded.
 - [`getLocale`](/en/docs/2/functions/getLocale): Returns the active locale code.
 
@@ -31,7 +31,7 @@ setLocale('zh-cn').then(() => {
 
 The `mdui-localize-status` event fires on `window` whenever a locale switch starts, finishes, or fails. You can listen to this event to execute custom operations, such as setting a locale preference cookie.
 
-The `detail.status` string property tells you what kind of status change has occured, and can be either `loading`, `ready`, or `error`:
+The `detail.status` string property tells you what kind of status change has occurred, and can be either `loading`, `ready`, or `error`:
 
 <table>
   <thead>
@@ -48,7 +48,7 @@ The `detail.status` string property tells you what kind of status change has occ
         <p>The <code>detail</code> object contains:</p>
         <ul>
           <li><code>loadingLocale</code>: Code of the locale that has started loading.</li>
-        <ul>
+        </ul>
       </td>
     </tr>
     <tr>

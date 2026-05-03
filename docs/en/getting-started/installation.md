@@ -10,7 +10,7 @@ npm install mdui --save
 
 ### Full Import {#full-import}
 
-To utilize all mdui components, import the following two files in your project's entry file:
+To use all mdui components, import the following two files in your project's entry file:
 
 ```js
 import 'mdui/mdui.css';

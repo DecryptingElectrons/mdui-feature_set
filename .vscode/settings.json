@@ -1,7 +1,8 @@
 {
   "html.customData": ["./packages/mdui/html-data.zh-cn.json"],
   "css.customData": ["./packages/mdui/css-data.zh-cn.json"],
-  "eslint.packageManager": "pnpm",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.format.enable": true,
   "editor.formatOnSave": true,
   "files.exclude": {

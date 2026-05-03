@@ -2,19 +2,17 @@
 <idea-plugin>
   <id>org.mdui.plugin</id>
   <name>mdui</name>
-  <version>2.0.0</version>
-  <idea-version since-build="223"/>
+  <version>2.1.4</version>
+  <idea-version since-build="252"/>
   <vendor email="zdhxiong@gmail.com" url="https://www.mdui.org">zdhxiong</vendor>
   <description><![CDATA[
     A IntelliJ-based plugin that provides auto-completion, hover tips, and other features for the mdui framework.
     Supports the following IntelliJ-based IDEs:
     <ul>
-      <li>IntelliJ IDEA</li>
-      <li>PyCharm</li>
       <li>WebStorm</li>
+      <li>IntelliJ IDEA Ultimate</li>
       <li>PhpStorm</li>
-      <li>Rider</li>
-      <li>CLion</li>
+      <li>PyCharm Professional</li>
       <li>RubyMine</li>
       <li>GoLand</li>
     </ul>
@@ -33,12 +31,10 @@
     为 mdui 框架提供自动完成、悬停提示等功能的 IntelliJ IDE 插件。
     支持以下基于 IntelliJ 的 IDE：
     <ul>
-      <li>IntelliJ IDEA</li>
-      <li>PyCharm</li>
       <li>WebStorm</li>
+      <li>IntelliJ IDEA Ultimate</li>
       <li>PhpStorm</li>
-      <li>Rider</li>
-      <li>CLion</li>
+      <li>PyCharm Professional</li>
       <li>RubyMine</li>
       <li>GoLand</li>
     </ul>
@@ -61,6 +57,6 @@
   <depends>com.intellij.modules.xml</depends>
   <depends>JavaScript</depends>
   <extensions defaultExtensionNs="com.intellij">
-    <webSymbols.webTypes source="web-types/mdui.web-types.zh-cn.json" enableByDefault="true"/>
+    <polySymbols.webTypes source="web-types/mdui.web-types.zh-cn.json" enableByDefault="true"/>
   </extensions>
 </idea-plugin>

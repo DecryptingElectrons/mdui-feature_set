@@ -1,6 +1,6 @@
 # Top App Bar Component
 
-The Top App Bar provides information and actions related to the current screen, serving as a tool for branding, navigation, search, and actions.
+The Top App Bar provides context and actions for the current screen, supporting branding, navigation, search, and other actions.
 
 ## Usage {#usage}
 
@@ -44,7 +44,7 @@ However, it uses `position: absolute` in the following cases:
 
 By default, the top app bar is positioned relative to the current window and appears at the top of the page.
 
-To place the top app bar inside a container, specify the `scroll-target` attribute on the `<mdui-top-app-bar>` component. Set its value to the CSS selector or DOM element of the container with scrollable content. In this case, the top app bar will be positioned relative to the parent element. Ensure to add the styles `position: relative; overflow: hidden` to the parent element.
+To place the top app bar inside a container, specify the `scroll-target` attribute on the `<mdui-top-app-bar>` component. Set its value to the CSS selector or DOM element of the container with scrollable content. In this case, the top app bar will be positioned relative to the parent element. Be sure to add the styles `position: relative; overflow: hidden` to the parent element.
 
 ```html,example,expandable,playgroundId=421
 <div style="position: relative;overflow: hidden">
@@ -103,7 +103,7 @@ Scroll behaviors include:
 - `shrink`: Effective when `variant` is `medium` or `large`. Expands the top app bar when scrolling down and shrinks it when scrolling up.
 - `elevate`: Adds a shadow to the top app bar when scrolling down and removes the shadow when scrolling back to the top.
 
-The `scroll-threshold` attribute sets the number of pixels to start the scroll behavior of the top app bar. (Do not set the `scroll-threshold` attribute when using the `elevate` scroll behavior to respond promptly)
+The `scroll-threshold` attribute sets how many pixels must be scrolled before the top app bar starts reacting. Do not set `scroll-threshold` when using `elevate`, so it responds immediately.
 
 **Example: Hide on Scroll**
 
